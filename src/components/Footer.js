@@ -1,9 +1,10 @@
 import React from 'react';
 
 export default function Footer() {
+    let copyright = "Copyright © " + new Date().getFullYear();
     return <>
         <footer>
-            {document.write("Copyright &copy; " + new Date().getFullYear())}
+            {copyright}
         </footer>
     </>
 }
