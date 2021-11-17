@@ -1,0 +1,55 @@
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
+import ResultContainer from "../components/ResultContainer";
+
+const Result = () => {
+  const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  let params = useParams();
+  //   const [data, setData] = useState([]);
+  useEffect(() => {
+    console.log("Hello");
+    getData();
+    console.log("Data is done");
+  }, []);
+  console.log(params);
+
+  const getData = async () => {
+    try {
+      const res = await axios.get(
+        `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${params.city}`
+      );
+      console.log("Resposnse is sent");
+      console.log(res);
+      setResult(res.data);
+      setLoading(false);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <div>
+      {loading ? (
+        <h1>Loading</h1>
+      ) : (
+        <>
+          <ResultContainer
+            country={result.location.country}
+            temp={result.current.temp_c}
+            humidity={result.current.humidity}
+          />
+          <Link to="/">
+            <button>go home</button>
+          </Link>
+        </>
+      )}
+
+      {/* <h1>{data.location.country}</h1> */}
+    </div>
+  );
+};
+
+export default Result;

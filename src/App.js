@@ -1,15 +1,20 @@
-import './index.css';
-import Footer from "./components/Footer"
-import WeatherData from './components/WeatherData';
+import "./index.css";
+import { Routes, Route } from "react-router-dom";
+// import Footer from "./components/Footer"
+// import WeatherData from './components/WeatherData';
+import Home from "./Pages/Home";
+import Result from "./Pages/Result";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-        <WeatherData />
-        <Footer />
-    </div>
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path=":city" element={<Result />} />
+      </Routes>
+    </>
   );
 }
 
