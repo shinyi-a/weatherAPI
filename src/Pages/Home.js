@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [inputText, setInputText] = useState("");

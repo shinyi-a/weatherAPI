@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import ResultContainer from "../components/ResultContainer";
 
@@ -39,11 +39,12 @@ const Result = () => {
           <ResultContainer
             country={result.location.country}
             temp={result.current.temp_c}
+            cloud={result.current.cloud}
+            uv={result.current.uv}
             humidity={result.current.humidity}
+            text={result.current.condition.text}
+            icon={result.current.condition.icon}
           />
-          <Link to="/">
-            <button>go home</button>
-          </Link>
         </>
       )}
 

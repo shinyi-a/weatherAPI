@@ -11,14 +11,13 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
+} */
 
 footer {
   text-align: center;
   height: 50px;
   background-color: #0b0433;
-  color: #EEEEEE;
+  color: #eeeeee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +25,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-} */
+}
 
 * {
   margin: 0;
@@ -45,7 +44,7 @@ a {
 
 .nav {
   width: 100%;
-  background-color: black;
+  background-color: #0b0433;
   height: 50px;
   color: white;
   text-align: center;
@@ -65,7 +64,8 @@ input {
   padding: 10px;
   margin: 10px;
 }
-.search {
+.search,
+.gohome {
   background-color: grey;
   color: white;
   padding: 10px;
