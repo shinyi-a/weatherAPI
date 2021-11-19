@@ -1,6 +1,5 @@
 import "./index.css";
 import { Routes, Route } from "react-router-dom";
-// import WeatherData from './components/WeatherData';
 import Home from "./Pages/Home";
 import Result from "./Pages/Result";
 import Nav from "./components/Nav";

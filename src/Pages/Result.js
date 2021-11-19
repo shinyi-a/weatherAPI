@@ -4,36 +4,33 @@ import axios from "axios";
 import ResultContainer from "../components/ResultContainer";
 
 const Result = () => {
-  const [result, setResult] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState(""); //get weather result from user selected country
+  const [loading, setLoading] = useState(true); //check if weather API call is completed
 
-  let params = useParams();
-  //   const [data, setData] = useState([]);
-  useEffect(() => {
-    console.log("Hello");
-    getData();
-    console.log("Data is done");
-  }, []);
-  console.log(params);
+  let { city } = useParams();
 
-  const getData = async () => {
+  //call for selected country API
+  const getData = async (city) => {
     try {
       const res = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${params.city}`
+        `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${city}`
       );
-      console.log("Resposnse is sent");
-      console.log(res);
       setResult(res.data);
       setLoading(false);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
+
+  //only call waether API once
+  useEffect(() => {
+    getData(city);
+  }, [city]);
+
   return (
     <div>
       {loading ? (
-        <h1>Loading</h1>
+        <div className="loading">
+          <h1>loading...</h1>
+        </div>
       ) : (
         <>
           <ResultContainer
@@ -47,8 +44,6 @@ const Result = () => {
           />
         </>
       )}
-
-      {/* <h1>{data.location.country}</h1> */}
     </div>
   );
 };
