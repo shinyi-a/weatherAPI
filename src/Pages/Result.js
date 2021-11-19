@@ -10,9 +10,9 @@ const Result = () => {
   let { city } = useParams();
   //   const [data, setData] = useState([]);
   useEffect(() => {
-    console.log("Hello");
+    // console.log("Hello");
     getData();
-    console.log("Data is done");
+    // console.log("Data is done");
   }, []);
   // console.log(params);
 
@@ -21,11 +21,11 @@ const Result = () => {
       const res = await axios.get(
         `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${city}`
       );
-      console.log("Resposnse is sent");
-      console.log(res);
+      // console.log("Resposnse is sent");
+      // console.log(res.data);
       setResult(res.data);
       setLoading(false);
-      console.log(result);
+      // console.log(result);
     } catch (error) {
       console.log(error);
     }

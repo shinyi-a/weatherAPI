@@ -7,7 +7,7 @@ const Home = () => {
 
   const handleChange = (e) => {
     setInputText(e.target.value);
-    console.log(inputText);
+    // console.log(inputText);
   };
 
   return (

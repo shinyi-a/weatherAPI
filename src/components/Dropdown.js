@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Dropdown = () => {
   const [country, setCountry] = useState([]);
+  const [loadCountry, setLoadCountry] = useState(true);
 
   useEffect(() => {
     getCountry();
@@ -10,25 +11,30 @@ const Dropdown = () => {
 
   const getCountry = async () => {
     try {
-      const response = await axios.get("https://restcountries.com/v3.1/all");
-      console.log(response);
-      setCountry(response);
+      const res = await axios.get("https://travelbriefing.org/countries.json");
+      setCountry(res.data);
+      setLoadCountry(false);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <select className="form">
-      {/* <option value="0">Select Country</option> */}
-      {country.map((count, index) => {
-        return (
-          <option key={index} value={count.name.common}>
-            {count.name.common}
-          </option>
-        );
-      })}
-    </select>
+    <div>
+      {loadCountry ? (
+        <h1>loading</h1>
+      ) : (
+        <select className="form">
+          {country.map((value, index) => {
+            return (
+              <option key={index} value={value.name}>
+                {value.name}
+              </option>
+            );
+          })}
+        </select>
+      )}
+    </div>
   );
 };
 
