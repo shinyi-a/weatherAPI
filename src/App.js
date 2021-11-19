@@ -5,11 +5,13 @@ import Home from "./Pages/Home";
 import Result from "./Pages/Result";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Dropdown from "./components/Dropdown";
 
 function App() {
   return (
     <>
       <Nav />
+      <Dropdown />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path=":city" element={<Result />} />
