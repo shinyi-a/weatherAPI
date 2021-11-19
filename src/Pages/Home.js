@@ -39,11 +39,17 @@ const Home = () => {
   const [loadCountry, setLoadCountry] = useState(true);
   const [inputText, setInputText] = useState("");
 
-  const handleClick = (count) => {
-    setInputText(count);
-    console.log(count);
-    console.log(inputText);
+  // const handleClick = (count) => {
+  //   setInputText(count);
+  //   console.log(count);
+  //   console.log(inputText);
+  // };
+
+  const handleChange = (e) => {
+    setInputText(e.target.value);
+    // console.log(inputText);
   };
+
   useEffect(() => {
     getCountry();
   }, []);
@@ -70,14 +76,14 @@ const Home = () => {
         {loadCountry ? (
           <h1>loading</h1>
         ) : (
-          <select className="form">
+          <select className="form" onChange={handleChange}>
             <option value="0">Please select country</option>
             {country.map((value, index) => {
               return (
                 <option
                   key={index}
                   value={value.name}
-                  onClick={() => handleClick(value.name)}
+                  // onClick={() => handleClick(value.name)}
                 >
                   {value.name}
                 </option>
