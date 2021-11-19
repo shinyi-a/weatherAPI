@@ -7,19 +7,19 @@ const Result = () => {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(true);
 
-  let params = useParams();
+  let { city } = useParams();
   //   const [data, setData] = useState([]);
   useEffect(() => {
     console.log("Hello");
     getData();
     console.log("Data is done");
   }, []);
-  console.log(params);
+  // console.log(params);
 
   const getData = async () => {
     try {
       const res = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${params.city}`
+        `https://api.weatherapi.com/v1/current.json?key=aa0ba9a997824d67ae1111340211711&q=${city}`
       );
       console.log("Resposnse is sent");
       console.log(res);

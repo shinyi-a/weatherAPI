@@ -13,8 +13,7 @@ const Home = () => {
   return (
     <div className="container">
       <div className="home">
-        <h1>Please enter city name for weather</h1>
-
+        <h1>Please enter city name for current weather</h1>
         <input
           type="text"
           onChange={handleChange}
