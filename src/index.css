@@ -13,41 +13,23 @@ code {
     monospace;
 } */
 
-footer {
-  text-align: center;
-  height: 50px;
-  background-color: #0b0433;
-  color: #eeeeee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
-
 * {
   margin: 0;
   padding: 0;
   border: 0;
-}
-
-body {
-  background-color: #eeeeee;
+  --palegrey: #eeeeee;
+  --darknavy: #0b0433;
+  --darkgrey: #414141;
 }
 
 a {
-  color: white;
+  color: var(--palegrey);
   text-decoration: none;
+  font-family: "Comfortaa", cursive;
 }
 
-.nav {
-  width: 100%;
-  background-color: #0b0433;
-  height: 50px;
-  color: white;
-  text-align: center;
+body {
+  background-color: var(--palegrey);
 }
 
 .container {
@@ -57,17 +39,77 @@ a {
   align-content: center;
   justify-content: center;
   height: 90vh;
+  font-family: "Krub", sans-serif;
 }
 
-input {
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
+.cursornone {
+  cursor: context-menu;
 }
+
+.dropdown,
+option {
+  font-family: "Krub", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  height: 50px;
+  background-color: var(--darknavy);
+  color: var(--palegrey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: "Krub", sans-serif;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  font-family: "Krub", sans-serif;
+}
+
+.nav {
+  width: 100%;
+  background-color: var(--darknavy);
+  height: 50px;
+  color: var(--palegrey);
+  text-align: center;
+}
+
+.nobold {
+  font-weight: normal;
+}
+
 .search,
 .gohome {
-  background-color: grey;
-  color: white;
+  background-color: var(--darkgrey);
+  color: var(--palegrey);
+  width: 100px;
   padding: 10px;
   margin: 10px;
+  font-family: "Krub", sans-serif;
+  border-radius: 30px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.search:hover,
+.gohome:hover {
+  background-color: grey;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
