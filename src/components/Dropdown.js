@@ -25,6 +25,7 @@ const Dropdown = () => {
         <h1>loading</h1>
       ) : (
         <select className="form">
+          <option value="0">Please select country</option>
           {country.map((value, index) => {
             return (
               <option key={index} value={value.name}>
